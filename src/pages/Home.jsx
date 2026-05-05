@@ -6,16 +6,35 @@ import placeholder from "../assets/placeholder.png";
 import generalThumb from "../assets/images/general.png";
 
 const samplePpts = [
-  { id: "1", title: "Marketing Plan 2025", desc: "A modern marketing plan deck with data visualizations.", thumb: placeholder, premium: false },
-  { id: "2", title: "Investor Pitch", desc: "Startup pitch deck template.", thumb: placeholder, premium: true },
-  { id: "3", title: "Education Template", desc: "Lesson plan slides and handouts.", thumb: placeholder, premium: false },
+  {
+    id: "1",
+    title: "Marketing Plan 2025",
+    desc: "A modern marketing plan deck with data visualizations.",
+    thumb: placeholder,
+    premium: false,
+  },
+  {
+    id: "2",
+    title: "Investor Pitch",
+    desc: "Startup pitch deck template.",
+    thumb: placeholder,
+    premium: true,
+  },
+  {
+    id: "3",
+    title: "Education Template",
+    desc: "Lesson plan slides and handouts.",
+    thumb: placeholder,
+    premium: false,
+  },
 ];
 
 export default function Home() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const BaseUrl = "http://127.0.0.1:8000";
+  const BaseUrl = "http://187.77.184.12:8000";
+  console.log("Base URL:", BaseUrl);
 
   const flattenCategories = (data) => {
     if (!data) return [];
@@ -59,14 +78,13 @@ export default function Home() {
   const handleClick = (occupation, keywords) => {
     navigate(
       `/search?occupation=${encodeURIComponent(
-        occupation
-      )}&keywords=${encodeURIComponent(JSON.stringify(keywords))}`
+        occupation,
+      )}&keywords=${encodeURIComponent(JSON.stringify(keywords))}`,
     );
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-
       {/* HERO SECTION */}
       <Hero />
 
@@ -77,10 +95,11 @@ export default function Home() {
         </h2>
 
         {loading ? (
-          <div className="text-center text-gray-500 py-20">Loading categories...</div>
+          <div className="text-center text-gray-500 py-20">
+            Loading categories...
+          </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-
             {categories.map((cat, idx) => (
               <div
                 key={idx}
@@ -91,7 +110,6 @@ export default function Home() {
               >
                 {/* Icon Container */}
                 <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden shadow-inner">
-
                   <img
                     src={cat.thumb}
                     alt={cat.occupation}
@@ -106,12 +124,11 @@ export default function Home() {
                 </h3>
               </div>
             ))}
-
           </div>
         )}
       </section>
 
-    {/*  {/* TRENDING SECTION 
+      {/*  {/* TRENDING SECTION 
       <section className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Trending Presentations</h2>

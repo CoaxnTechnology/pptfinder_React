@@ -6,7 +6,8 @@ import generalThumb from "../assets/images/general.png";
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const BaseUrl = "http://127.0.0.1:8000";
+  const BaseUrl = "http://187.77.184.12:8000";
+  console.log("Base URL:", BaseUrl);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,14 +48,13 @@ export default function Categories() {
   const handleClick = (occupation, keywords) => {
     navigate(
       `/search?occupation=${encodeURIComponent(
-        occupation
-      )}&keywords=${encodeURIComponent(JSON.stringify(keywords))}`
+        occupation,
+      )}&keywords=${encodeURIComponent(JSON.stringify(keywords))}`,
     );
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-
       {/* HEADER */}
       <div className="bg-white py-14 shadow-sm border-b">
         <h1 className="text-center text-4xl font-extrabold text-gray-800 tracking-tight">
@@ -73,7 +73,6 @@ export default function Categories() {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-
             {categories.map((cat, idx) => (
               <div
                 key={idx}
@@ -96,7 +95,6 @@ export default function Categories() {
                 </h3>
               </div>
             ))}
-
           </div>
         )}
       </div>

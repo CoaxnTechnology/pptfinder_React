@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import PPTCard from "../components/PPTCard";
 import PPTViewer from "../components/PPTViewer";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://187.77.184.12:8000";
 
 /* ================= GOOGLE AD ================= */
 function GoogleAd({ adClient, adSlot, className }) {
@@ -75,7 +75,7 @@ export default function Search() {
 
     try {
       const res = await fetch(
-        `${API_URL}/check_keyword?keyword=${encodeURIComponent(term)}`
+        `${API_URL}/check_keyword?keyword=${encodeURIComponent(term)}`,
       );
       if (!res.ok) throw new Error("API error");
 
@@ -89,7 +89,7 @@ export default function Search() {
           desc: item.description || item.snippet,
           thumbnail: item.thumbnail || null,
           link: item.link,
-        }))
+        })),
       );
     } catch (err) {
       setErrorMsg("Something went wrong. Please try again.");
@@ -202,18 +202,12 @@ export default function Search() {
         )}
 
         {!loading && results.length === 0 && (
-          <p className="text-center text-gray-500">
-            No presentations found.
-          </p>
+          <p className="text-center text-gray-500">No presentations found.</p>
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {results.map((item) => (
-            <PPTCard
-              key={item.id}
-              item={item}
-              onView={() => openPPT(item)}
-            />
+            <PPTCard key={item.id} item={item} onView={() => openPPT(item)} />
           ))}
         </div>
       </section>

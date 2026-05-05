@@ -3,7 +3,7 @@ import Card from "./PPTCard";
 import { analytics } from "../firebase";
 import { logEvent } from "firebase/analytics";
 
-const BaseUrl = "http://127.0.0.1:8000"; 
+const BaseUrl = "http://187.77.184.12:8000";
 
 const CardGrid = () => {
   const [categories, setCategories] = useState([]);
