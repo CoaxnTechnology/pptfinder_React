@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import PPTCard from "../components/PPTCard";
 import PPTViewer from "../components/PPTViewer";
 
-const API_URL = "http://187.77.184.12:8000";
+const API_URL = "https://api.pptfinders.com";
 
 /* ================= GOOGLE AD ================= */
 function GoogleAd({ adClient, adSlot, className }) {

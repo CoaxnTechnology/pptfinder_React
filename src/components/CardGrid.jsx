@@ -3,7 +3,7 @@ import Card from "./PPTCard";
 import { analytics } from "../firebase";
 import { logEvent } from "firebase/analytics";
 
-const BaseUrl = "http://187.77.184.12:8000";
+const BaseUrl = "https://api.pptfinders.com";
 
 const CardGrid = () => {
   const [categories, setCategories] = useState([]);
@@ -54,7 +54,7 @@ const CardGrid = () => {
 
   // Filtered cards based on search input
   const filteredCategories = categories.filter((cat) =>
-    cat.title.toLowerCase().includes(searchTerm.toLowerCase())
+    cat.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (

@@ -6,7 +6,8 @@ import generalThumb from "../assets/images/general.png";
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const BaseUrl = "http://187.77.184.12:8000";
+  //const BaseUrl = "http://187.77.184.12:8000";
+  const BaseUrl = "https://api.pptfinders.com";
   console.log("Base URL:", BaseUrl);
   const navigate = useNavigate();
 

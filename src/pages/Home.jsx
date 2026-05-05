@@ -33,7 +33,7 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const BaseUrl = "http://187.77.184.12:8000";
+  const BaseUrl = "https://api.pptfinders.com";
   console.log("Base URL:", BaseUrl);
 
   const flattenCategories = (data) => {
